@@ -27,7 +27,7 @@ class Main {
 
     public static void main(String[] args) {
         employees.add(new Employee("NameX", 37));
-        employees.add(new Employee("NameY", 34));
+        employees.add(new Employee("NameY", 20));
         employees.add(new Employee("NameZ", 36));
 
         // Lambda function with 1 input argument (FunctionalInterface)
@@ -39,8 +39,13 @@ class Main {
         BiFunction<Employee, Integer, String> fnc3 = (employees, p) -> employees.getName() + " " + p;
         System.out.println(fnc3.apply(new Employee("SomeName", 27), 10));
 
-        Predicate<Employee> predicate = employee -> employee.getAge() > 10;
+        // Predicate
+        Predicate<Employee> predicate = employee -> employee.getAge() > 20;
+        usePredicate(employees, predicate);
+
+        // Supplier
         Supplier<Employee> supplier = () -> employees.get(0);
+        System.out.println(supplier.get());
 
         //Streams
         List<String> someL = Arrays.asList(
@@ -64,6 +69,14 @@ class Main {
                 .peek(System.out::println)  // peek return another stream
                 .distinct()
                 .forEach((item -> System.out.println(item + "________az")));
+    }
+
+    private static void usePredicate(List<Employee> employees, Predicate<Employee> predicate) {
+        for (Employee employee : employees) {
+            if (predicate.test(employee)) {
+                System.out.println(employee.getName());
+            }
+        }
     }
 }
 
