@@ -30,9 +30,15 @@ class Main {
         employees.add(new Employee("NameY", 34));
         employees.add(new Employee("NameZ", 36));
 
+        // Lambda function with 1 input argument (FunctionalInterface)
         Function<Employee, String> fnc1 = (employee) -> employee.getName() + " Something else";
         Function<String, String> fnc2 = (employee) -> employee.toUpperCase();
+        System.out.println(fnc1.andThen(fnc2).apply(employees.get(0)));
+
+        // Lambda function with 2 input argument (FunctionalInterface)
         BiFunction<Employee, Integer, String> fnc3 = (employees, p) -> employees.getName() + " " + p;
+        System.out.println(fnc3.apply(new Employee("SomeName", 27), 10));
+
         Predicate<Employee> predicate = employee -> employee.getAge() > 10;
         Supplier<Employee> supplier = () -> employees.get(0);
 
