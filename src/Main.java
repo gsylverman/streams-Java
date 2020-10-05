@@ -36,7 +36,6 @@ class Main {
         Supplier<Employee> supplier = () -> employees.get(0);
 
         //Streams
-
         List<String> someL = Arrays.asList(
                 "NameY",
                 "NameX",
@@ -50,9 +49,6 @@ class Main {
                 .map(String::toUpperCase)
                 .forEach(System.out::println);
 
-        String name = "someName";
-        String upper = new String(name).toUpperCase();
-        String upper2 = name.toUpperCase();
     }
 }
 
