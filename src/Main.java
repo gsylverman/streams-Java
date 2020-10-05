@@ -25,9 +25,9 @@ class Main {
     private static List<Employee> employees = new ArrayList<>();
 
     public static void main(String[] args) {
-        employees.add(new Employee("Raul", 37));
-        employees.add(new Employee("Daniel", 34));
-        employees.add(new Employee("Gavril", 36));
+        employees.add(new Employee("NameX", 37));
+        employees.add(new Employee("NameY", 34));
+        employees.add(new Employee("NameZ", 36));
 
         Function<Employee, String> fnc1 = (employee) -> employee.getName() + " Something else";
         Function<String, String> fnc2 = (employee) -> employee.toUpperCase();
