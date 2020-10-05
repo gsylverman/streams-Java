@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.*;
+import java.util.stream.Stream;
 
 class Employee {
     private String name;
@@ -49,6 +50,14 @@ class Main {
                 .map(String::toUpperCase)
                 .forEach(System.out::println);
 
+        Stream<String> stream1 = Stream.of("A5", "B3", "J7");
+        Stream<String> stream2 = Stream.of("Z5", "Y3", "F7", "J7");
+        Stream<String> compoundStream = Stream.concat(stream1, stream2);
+        compoundStream
+                .map(String::toLowerCase)
+                .peek(System.out::println)  // peek return another stream
+                .distinct()
+                .forEach((item -> System.out.println(item + "________az")));
     }
 }
 
