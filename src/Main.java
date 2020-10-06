@@ -69,6 +69,31 @@ class Main {
                 .peek(System.out::println)  // peek return another stream
                 .distinct()
                 .forEach((item -> System.out.println(item + "________az")));
+
+
+        List<String> topNames2015 = Arrays.asList(
+                "Amelia",
+                "Olivia",
+                "emily",
+                "Isla",
+                "Ava",
+                "oliver",
+                "Jack",
+                "Charlie",
+                "harry",
+                "Jacob"
+        );
+
+        long namesBeginWithA = topNames2015
+                .stream()
+                .map(item -> {
+                    return item.substring(0, 1).toUpperCase() + item.substring(1);
+                })
+                .peek(System.out::println)
+                .filter(item -> item.startsWith("A"))
+                .count();
+        System.out.println(namesBeginWithA);
+
     }
 
     private static void usePredicate(List<Employee> employees, Predicate<Employee> predicate) {
