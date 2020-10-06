@@ -70,7 +70,6 @@ class Main {
                 .distinct()
                 .forEach((item -> System.out.println(item + "________az")));
 
-
         List<String> topNames2015 = Arrays.asList(
                 "Amelia",
                 "Olivia",
@@ -104,6 +103,3 @@ class Main {
         }
     }
 }
-
-
-
